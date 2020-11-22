@@ -1,5 +1,5 @@
 # mos
-an simple operating system
+a simple operating system
 
 # how to build
 ## tools
