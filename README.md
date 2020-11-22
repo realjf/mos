@@ -8,9 +8,10 @@ an simple operating system
 - ld
 - nasm
 - qemu
+- virtualbox
 
 ```shell script
-apt-get install gcc nasm qemu qemu-system
+apt-get install gcc nasm qemu qemu-system virtualbox
 ```
 
 ## compile .asm file
@@ -37,3 +38,36 @@ now we can look at the H at the very beginning of the screen it is what we wante
 
 
 ## create a  build.sh script to automate the task
+
+## build iso image to make our os realy bootable and then we can use virtualbox or make bootable use to boot our os
+### 1. create new folder with os name
+### 2. create boot folder in it and grub folder in boot
+```
+mkdir mos/boot/grub -p
+```
+
+### 3. create a file grub.cfg in grub folder
+
+### 4. copy an paste the previously created .bin file to boot folder
+
+### 5. build iso image 
+```
+grub-mkrescue -o mos.iso mos/
+```
+
+### 6. open virtualbox to test the .iso file
+
+- name: test
+- machine folder: /your/vm path/
+- type: other
+- version: other/unknown
+- memory: 64MB
+- hard disk: do not add a virtual hard disk
+
+then create it
+
+### 7. virtualbox - settings - storage - controller:IDE - empty
+- select the "Optical Drive" attribute,  and choose a virtual optical disk
+- add a disk image(select your .iso file)
+- and then choose the image, click ok
+- start your os
